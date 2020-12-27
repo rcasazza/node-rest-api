@@ -1,9 +1,20 @@
 import express from 'express';
+import {people} from './people';
 
 let app = express();
 
 app.get('/hello', (req, res) => {
     res.send("Hello World!");
+});
+
+app.get('/people', (req, res) => {
+    res.json(people);
+});
+
+app.get('/people/:name', (req, res) => {
+    let { name } = req.params;
+    let person = people.find(x => x.name === name);
+    res.json(person);
 });
 
 app.listen(3000, () => {
