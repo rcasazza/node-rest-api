@@ -1,13 +1,13 @@
-export let people = [{
-    name: "John",
+export const people = [{
+    name: 'John',
     age: 35,
-    hairColor: "brown",
+    hairColor: 'brown',
 }, {
-    name: "Joe",
+    name: 'Joe',
     age: 20,
-    hairColor: "black",
+    hairColor: 'black',
 }, {
-    name: "Jane",
+    name: 'Jane',
     age: 40,
-    hairColor: "red",
+    hairColor: 'red',
 }];

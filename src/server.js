@@ -1,14 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { promises as fs } from 'fs';
-import {people} from './people';
+import { people } from './people';
 
-let app = express();
+const app = express();
 
 app.use(bodyParser.json());
 
 app.get('/hello', (req, res) => {
-    res.send("Hello World!!");
+    res.send('Hello World!!');
 });
 
 app.get('/people', (req, res) => {
@@ -16,24 +16,24 @@ app.get('/people', (req, res) => {
 });
 
 app.get('/people/:name', (req, res) => {
-    let { name } = req.params;
-    let person = people.find(x => x.name === name);
+    const { name } = req.params;
+    const person = people.find((x) => x.name === name);
     res.json(person);
 });
 
 app.get('/file-data', async (req, res) => {
-    let data = await fs.readFile(__dirname + '/people-data.json');
-    let people = JSON.parse(data);
+    const data = await fs.readFile(`${__dirname}/people-data.json`);
+    const people = JSON.parse(data);
 
     res.json(people);
 });
 
 app.post('/people', (req, res) => {
-    let newPerson = req.body;
+    const newPerson = req.body;
     people.push(newPerson);
     res.json(people);
 });
 
 app.listen(3000, () => {
-    console.log("Server is listening");
+    console.log('Server is listening');
 });
