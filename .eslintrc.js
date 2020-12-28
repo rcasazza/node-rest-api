@@ -10,7 +10,11 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
+    plugins: [
+      'immutable',
+    ],
     rules: {
         indent: ['error', 4],
+        'immutable/no-mutation': 'error',
     },
 };
